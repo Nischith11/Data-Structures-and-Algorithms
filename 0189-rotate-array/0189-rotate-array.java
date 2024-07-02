@@ -1,5 +1,6 @@
 class Solution {
     public void rotate(int[] nums, int k) {
+        //Reversal Algorithm
         if(k >= nums.length){
             int cal=k % nums.length;
             k=cal;
