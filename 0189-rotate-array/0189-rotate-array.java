@@ -1,20 +1,47 @@
 class Solution {
     public void rotate(int[] nums, int k) {
-        int n=nums.length;
-        if(n <= 1){
-            return;
+        if(k >= nums.length){
+            int cal=k % nums.length;
+            k=cal;
         }
-        k = k % n;
-        int[] temp=new int[k];
-        int ni=0;
-        for(int i=n-k;i<n;i++){
-            temp[ni++]=nums[i];
+        ReverseKElements(nums,k);
+        ReverseNMinusK(nums,k);
+        ReverseWhole(nums,k);
+    }
+    public static void ReverseKElements(int[] nums,int k){
+        int p1=nums.length - k;
+        int p2=nums.length-1;
+        while(p1 < p2){
+            int temp=nums[p1];
+            nums[p1]=nums[p2];
+            nums[p2]=temp;
+            p1++;
+            p2--;
         }
-        for(int j=n-k-1;j>=0;j--){
-            nums[j+k]=nums[j];
+        
+    }
+    
+    public static void ReverseNMinusK(int[] nums,int k){
+        int p1=0;
+        int p2=(nums.length-k) - 1;
+        while(p1 < p2){
+            int temp=nums[p1];
+            nums[p1]=nums[p2];
+            nums[p2]=temp;
+            p1++;
+            p2--;
         }
-        for(int s=0;s<k;s++){
-            nums[s]=temp[s];
+    }
+    
+    public static void ReverseWhole(int[] nums,int k){
+        int p1=0;
+        int p2=nums.length-1;
+        while(p1 < p2){
+            int temp=nums[p1];
+            nums[p1]=nums[p2];
+            nums[p2]=temp;
+            p1++;
+            p2--;
         }
     }
 }
