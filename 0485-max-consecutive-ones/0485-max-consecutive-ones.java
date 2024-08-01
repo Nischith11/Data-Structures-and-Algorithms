@@ -1,20 +1,18 @@
 class Solution {
-    public int findMaxConsecutiveOnes(int[] nums) {
+    public int findMaxConsecutiveOnes(int[] array) {
         int pointer=0;
         int count=0;
-        int maxconsecutive=Integer.MIN_VALUE;
-        while(pointer < nums.length){
-            if(nums[pointer] == 1){
-                count++;
-            }
-            if(count > maxconsecutive){
-                maxconsecutive=count;
-            }
-            if(nums[pointer]!=1){
+        int max=0;
+        for (int i = 0; i < array.length; i++) {
+            if(array[i] == 0){
                 count=0;
+            }else{
+                count++;
+                if(count > max){
+                    max=count;
+                }
             }
-            pointer++;
         }
-        return maxconsecutive;
+        return max;
     }
 }
