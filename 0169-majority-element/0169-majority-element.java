@@ -40,7 +40,7 @@ class Solution {
             
         }
         return element;
-        
+        //The T.C of this optimal approach is O(N)
         
         }
 }
